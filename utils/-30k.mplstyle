@@ -1,0 +1,85 @@
+## Colour Palette
+## Accent Colours
+# blue: #202F66
+# orange: #FF7048
+# purple: #8B87EA
+# yellow: #F3D36E
+# pink: #D869AB
+# cyan: #54C9B9
+## Text and background colour
+# text_black: #32363A,
+# text_lighter1: #6F7273
+# text_lighter2: #8B8E8F
+# text_lighter3_ui: #B3B5B6
+# bg_cream: #FAF7F4
+## Typography
+# font_main: Inconsolata
+# font_sans: Noto
+# font_serif: Canela Text
+# font_mono: Inconsolata
+## Base font size for 5 inches height figure
+# matpltolib base font size: 12
+# customised base font size: 12 (scale=1.618)
+# [ 2.8,  4.6,  7.4, 12. , 19.4, 31.4, 50.8]
+## Figure ratio
+# based on 21:9 (2.33:1) but a little wider for sup_title offset
+
+
+# Figure
+figure.figsize : 12.5, 5
+figure.dpi : 300.0
+figure.facecolor : FAF7F4
+axes.facecolor : FAF7F4
+savefig.dpi : 300.0
+savefig.facecolor : FAF7F4
+savefig.bbox : tight
+savefig.pad_inches : 0.1
+
+# Grid
+grid.alpha : 0.1
+grid.color : 32363A
+grid.linewidth : 0.5
+grid.linestyle: - 
+
+# Axes
+axes.edgecolor : B3B5B6
+axes.grid : True
+axes.linewidth : 0.6
+axes.spines.left : True
+axes.spines.bottom : True
+axes.spines.top : False
+axes.spines.right : False
+axes.axisbelow : True 
+
+# Tick
+xtick.direction : out
+ytick.direction : out
+xtick.color : B3B5B6
+ytick.color : B3B5B6
+xtick.labelcolor : 32363A
+ytick.labelcolor : 32363A
+xtick.major.size : 3
+ytick.major.size : 3
+xtick.labelsize : small
+ytick.labelsize : small
+
+# Line
+lines.solid_capstyle : projecting
+lines.solid_joinstyle : bevel
+lines.linewidth : 2
+lines.markeredgewidth : 0.5
+lines.markersize : 7.4
+
+
+## Typography
+font.family : Inconsolata
+font.size : 12
+text.color: 32363A
+
+# Title
+axes.titlelocation : left
+axes.titlesize : 12
+axes.titlecolor : 32363A
+axes.titlepad : 7.4
+axes.labelpad : 4.0
+figure.titlesize : 19.4
