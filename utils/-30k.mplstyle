@@ -83,3 +83,8 @@ axes.titlecolor : 32363A
 axes.titlepad : 7.4
 axes.labelpad : 4.0
 figure.titlesize : 19.4
+
+# Legend
+# Remove the box edge colour
+legend.shadow : False
+legend.edgecolor : None

@@ -6,3 +6,8 @@
 ## Corpus
 
 - Python NLTK Brown
+
+## References
+
+- https://towardsdatascience.com/wordle-vision-simple-analytics-to-up-your-wordle-game-65daf4f1aa6f
+- https://github.com/dwyl/english-words (words alpha)
