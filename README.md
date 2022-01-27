@@ -5,7 +5,7 @@
 
 ## Corpus
 
-- Python NLTK Brown
+- Python NLTK Brown: `common n-letter words.csv`
 
 ## References
 

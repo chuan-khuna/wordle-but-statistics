@@ -1,74 +1,82 @@
-import pandas as pd
 import numpy as np
+import pandas as pd
 
 
 class Wordle:
 
-    def __init__(self, file="./data/5-latter words.csv", check_random=False):
+    def __init__(self, file, allow_random=False):
         self.df = pd.read_csv(file)
-        self.word = self.df.sample(1)['word'].values[0]
-        self.try_ = 0
-        self.max_try = round(1.25 * len(self.word))
-        self.correct = 0
-        self.check_random = check_random
+        self.ans = self.df.sample(1)['word'].values[0]
+
+        self.current_guess = 0
+        self.max_guess = round(1.25 * len(self.ans))
+        self.allow_random = allow_random
 
     def guess(self, guess):
+        # return  is_pass, current_guess, score
 
-        error_message = ""
-        if self._check_word_list(guess) and self.check_random:
-            error_message += self._check_word_list(guess) + "\n"
-        if self._check_length(guess):
-            error_message += self._check_length(guess) + "\n"
-        if error_message:
-            return error_message
+        status = self.check_word_length(guess) & self.check_word_in_dictionary(guess)
 
-        # check number of try
-        # if current try is not exceed and the answer is not correct
-        if self.try_ + 1 < self.max_try and self.correct == 0:
-            self.try_ += 1
-            if self.word == guess:
-                self.correct = 1
-            return self.try_, self._check_guess(guess), guess
-        # if current try is exceed, return the correct answer
-        elif self.try_ + 1 == self.max_try and self.correct == 0:
-            self.try_ += 1
-            self.correct = 1
-            print(f"the answer is {self.word}")
-            guess = self.word
-            return self.try_, self._check_guess(guess), guess
+        if status:
+            score = np.array(self.get_score(self.ans, guess), dtype=np.int)
+            self.current_guess += 1
         else:
-            return self.try_, self._check_guess(self.word), self.word
+            score = np.array([0] * len(self.ans), dtype=np.int)
 
-    def _check_word_list(self, guess):
-        if guess not in list(self.df['word']):
-            return f"{guess} is not in word list"
+        ans = '-' * len(self.ans)
+        if self.current_guess > self.max_guess:
+            ans = self.ans
 
-    def _check_length(self, guess):
-        if len(guess) != len(self.word):
-            return f"expected word length={len(self.word)}, but {guess}'s length is {len(guess)}"
+        guess_result = {
+            'status': status,
+            '#guess': self.current_guess,
+            'max #guess': self.max_guess,
+            'guessed word': guess,
+            'score': score,
+            'answer': ans
+        }
 
-    def _check_guess(self, guess):
-        # mask used letters is a word
-        word_letters = list(self.word)
-        score = []
+        return guess_result
 
-        for i in range(len(guess)):
-            guess_letter = guess[i]
-            s = 0
-            # if the guess letter possifion is correct
-            if guess_letter == self.word[i]:
-                s = 2
-                word_letters[i] = ''
-                score.append(s)
-                # skip to next guess letter
-                continue
-            # if the possition is wrong
+    def get_score(self, ans, guess):
+
+        # amount of letters in ans
+        ans_letters = {}
+        for letter in ans:
+            if letter in ans_letters.keys():
+                ans_letters[letter] += 1
             else:
-                for j in range(len(self.word)):
-                    # if there is a guess letter is unused
-                    if guess_letter == word_letters[j]:
-                        s = 1
-                        word_letters[j] = ''
-                        break
-                score.append(s)
-        return np.array(score)
+                ans_letters[letter] = 1
+
+        score = []
+        # check if letters are in the correct position
+        for i, letter in enumerate(guess):
+            if letter == ans[i]:
+                score.append(2)
+                ans_letters[letter] -= 1
+            else:
+                score.append(0)
+
+        # check if letters in guess are not used, score = 1
+        # if it is used exceed the limit, score = 0
+        for i, letter in enumerate(guess):
+            if score[i] == 0 and letter in ans_letters.keys():
+                if ans_letters[letter] - 1 >= 0:
+                    ans_letters[letter] -= 1
+                    score[i] = 1
+
+        return score
+
+    def check_word_length(self, guess):
+        if len(guess) == len(self.ans):
+            return True
+        else:
+            print(f"Guessed word length is not equal to {len(self.ans)}.")
+            return False
+
+    def check_word_in_dictionary(self, guess):
+        if guess in list(self.df['word']) or self.allow_random:
+            return True
+        else:
+            print("Guessed word in not in dictionary.")
+            return False
