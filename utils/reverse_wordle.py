@@ -86,7 +86,7 @@ def expected_vocab_size(guess_df):
     return np.round(expected_value, 1)
 
 
-def find_best_guess(score_df, prev_possible_index, use_all_word=False):
+def find_best_guess(score_df, prev_possible_index, use_all_word=False, verbose=True):
     # base on current information V(i-1)
     # What is the best word g(i) to choose
 
@@ -114,6 +114,7 @@ def find_best_guess(score_df, prev_possible_index, use_all_word=False):
                 best_word = guess_word
                 best_expected_vocab_size = guess_val
 
-        print(f"{best_word}: expected vocab size = {best_expected_vocab_size}")
+        if verbose:
+            print(f"{best_word}: expected vocab size = {best_expected_vocab_size}")
 
     return best_word

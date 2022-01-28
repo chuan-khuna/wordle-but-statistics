@@ -11,3 +11,5 @@
 
 - https://towardsdatascience.com/wordle-vision-simple-analytics-to-up-your-wordle-game-65daf4f1aa6f
 - https://github.com/dwyl/english-words (words alpha)
+- https://github.com/thecheesynachos/word-game-solver/blob/master/wordle.ipynb
+- https://www.youtube.com/watch?v=B2AVF3_qdHY
