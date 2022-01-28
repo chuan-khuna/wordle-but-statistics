@@ -73,16 +73,16 @@ lines.markersize : 7.4
 
 ## Typography
 font.family : Inconsolata
-font.size : 12
+font.size : 14
 text.color: 32363A
 
 # Title
 axes.titlelocation : left
-axes.titlesize : 12
+axes.titlesize : 14
 axes.titlecolor : 32363A
 axes.titlepad : 7.4
 axes.labelpad : 4.0
-figure.titlesize : 19.4
+figure.titlesize : 22.6
 
 # Legend
 # Remove the box edge colour
