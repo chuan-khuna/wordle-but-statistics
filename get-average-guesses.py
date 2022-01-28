@@ -65,7 +65,7 @@ def minimise_vocab_size_method(ans):
     while not (correct):
         n += 1
         if guess == None:
-            guess = find_best_guess(df, range(len(df)), use_all_word=True, verbose=False)
+            guess = find_best_guess(df, range(len(vocab)), use_all_word=True, verbose=False)
         else:
             guess = find_best_guess(df, possible_ind, use_all_word=True, verbose=False)
 
