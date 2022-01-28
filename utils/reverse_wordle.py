@@ -1,3 +1,4 @@
+from turtle import pos
 import numpy as np
 import pandas as pd
 import os
@@ -90,24 +91,29 @@ def find_best_guess(score_df, prev_possible_index, use_all_word=False):
     # What is the best word g(i) to choose
 
     possible_df = score_df.loc[prev_possible_index]
+    prev_vocab = list(score_df.columns[prev_possible_index])
     vocab_size = len(possible_df)
-
-    best_expected_vocab_size = len(score_df)
-    best_words = None
 
     if use_all_word == True:
         guess_vocab = list(score_df.columns)
     else:
-        guess_vocab = list(possible_df.columns)
+        guess_vocab = prev_vocab
 
-    best_val = len(possible_df)
-    best_word = None
+    best_expected_vocab_size = expected_vocab_size(possible_df[prev_vocab[0]])
+    best_word = prev_vocab[0]
 
-    for guess_word in guess_vocab:
-        guess_val = expected_vocab_size(possible_df[guess_word])
+    if len(possible_df) > 1:
+        for guess_word in guess_vocab:
+            guess_val = expected_vocab_size(possible_df[guess_word])
 
-        if guess_val <= best_val:
-            best_word = guess_word
-            best_val = guess_val
+            # guess by previous possible word
+            if guess_val < best_expected_vocab_size and guess_word in list(prev_vocab):
+                best_word = guess_word
+                best_expected_vocab_size = guess_val
+            elif guess_val < best_expected_vocab_size and use_all_word:
+                best_word = guess_word
+                best_expected_vocab_size = guess_val
+
+        print(f"{best_word}: expected vocab size = {best_expected_vocab_size}")
 
     return best_word
