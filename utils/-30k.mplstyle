@@ -71,8 +71,10 @@ lines.markeredgewidth : 0.5
 lines.markersize : 7.4
 
 
+
 ## Typography
-font.family : Inconsolata
+# font.sans-serif: Hirogino Sans GB, sans-serif
+# font.family : Inconsolata
 font.size : 14
 text.color: 32363A
 

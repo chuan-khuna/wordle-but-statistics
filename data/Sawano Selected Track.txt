@@ -1,319 +1,3 @@
-determination
-Habit
-pride
-Limit
-black overall
-not at all
-Habit <flute ver.>
-Destination
-Catch a Waveのテーマ
-Dreams
-Surf Battle
-Take Off
-Blue Dragon
-pain
-Red Dragon
-grimace
-Walea
-SPIKE
-sifle a yawn
-Tu-Ru-La
-Tide Over
-Lie & Truth
-unnecessary words
-disturb
-Kahiwa
-cross
-pain <piano solo Ver.>
-spirit
-Aesthetic
-Believe <Instrumental>
-CRISIS
-for you
-Accident
-Rival
-for you <Gt.Ver.>
-Love Theme
-Danger
-Fight a Hard Battle
-Mr.MORIMOTO
-Cheer up!
-Mission
-go in
-for you <オルゴール Ver.>
-MURDER
-despair
-CELLARIA
-white AIR
-レクイエム <Piano Solo Ver.>
-from sunset to sunrise
-back in the sun
-SURFBOARD
-breeze
-STARY
-sea shore
-nervous
-BLOWIN'
-bloom
-splash
-hook
-unbalance
-in hurry
-Light & Love
-symphonic version
-chorus version
-piano version
-instrumental
-Instrumental
-Tang
-Sometimes O・T・O・N
-classic or rock
-passive days
-troublemaker
-Boo-Boo-Booing
-Yah-Guitar Man
-loosing the word
-Theatre of Okan & Oton
-Tang <Okan & Boku Ver.>
-sophisticated love
-Dear My Home Town
-蕾 <Instrumental>
-BLOOD ～Main Theme～
-VENOMOUS
-gravity
-Big Break
-plot
-Thousand Seeds
-out & out
-stillness
-SURVIVE
-Rising Moon
-gravity <piano solo ver.>
-dense fog
-beyond the time
-Beckon
-Climb to the Top
-alone
-Main Theme
-ZOMBIE
-Solitary Serenade
-Wall of Fog
-BUTTERFLY
-read a riddle
-A-LOAN
-Horror
-battle field
-REAPER
-Shito & Chika
-confront
-get into a jam
-Confinement
-insanity
-Pa-Si-Ri
-transparent
-Good Friend?
-Powder
-Live or Dead
-Michiru
-Main Theme ～strings ver.～
-scare
-nightmare
-breathe one's last
-cruel
-Save Your Soul
-Don't love me★baby
-Another sky
-Survive
-MAIN THEME
-Practical Base
-EM-cloud
-Translator
-waning moon
-BRAVE
-Theme of MANA
-Theme of SHINGO
-Okutamada-Princess
-LEGEND
-Out Break
-destroyer
-Ring
-JUPITAR II
-darkness & blaze
-Gigantic Formula
-bravery
-energy crisis
-white tone
-Thirteenth God
-main theme <strings ver.>
-ENEMY
-Backyard
-main theme <piano ver.>
-HI-KA-RI
-MAIN THEME <ver. 0>
-ALL IN ALL
-Passionate Tango
-the ups and downs of Life
-nocturne
-OVERTURN-GO
-poor & pure
-nocturne ～reprise～
-I love you
-DRAGON RISES
-BLUE DRAGON <'07 ver.>
-Engel und Teufel
-Feind oder Freund
-Intrigant
-entlassen
-In The Box
-thick tone
-spirit <strings ver.>
-RED DRAGON <'07 ver.>
-Battle with silence
-OUT BALANCE
-psychological warfare
-BLACk SMILe
-spirit <guitar ver.>
-Northern Sea
-ONE <soundtrack ver.>
-iN thE suN
-O-T@-KU
-flower
-iN AsakusA
-Poooo-$
-FEVER!?
-kiss the flower
-Reunion
-awkward
-Yearn for Moses
-NARUKO and RAITA
-Lost My Mother
-Umbrella
-jupiter
-After The Rain
-charm
-My Way Home
-BOMB BEE MEN!
-friends
-a sLicE oF LiFE
-OUTLAW
-OmuOmu Theme
-OmuOmu-Blues
-DECISION
-Life's tapestry
-SONIC BOOM
-A.I.R-K.I.C.K.-Y.A.H.!!
-money < heart ??
-friends <guitar version>
-debt
-That's All Right!?!
-TAKE A DARE
-mjyu
-Have A Nice Day!!
-Little Wing
-Together
-DIVE
-81DIVER
-CHECKMATE
-BISHOP
-LANCE
-ENDGAME
-GOLD
-MOVE
-SILVER
-KNIGHT
-WHITE
-PAWN
-KING
-ROOK
-DROP
-RANK
-CASTLE
-BLACK
-FILE
-GOLD <strings version>
-ALL I WANT IS YOU
-Schlaflied
-LiVE/EViL
-BeeLzeBuB
-RequieM
-LuCiFer
-AstArOth
-fLEurEttY
-pSYCHOMETRy
-aGaLiaRePT
-GracE
-sAtAnAchiA
-luciFUGE
-saRgaTaNAs
-cliché
-gEHENNa
-GracE (guitar version)
-neBirOs
-PRISONER
-BLACK MARIA
-ILLEGAL
-JUDGE
-JAILBREAK
-SIGN
-BETRAYER
-SERAIVIA
-DISTRESS
-TRUST
-DESPERADO
-GAME
-PURSUER
-SEARCH
-SIGN <guitar version>
-SWINDLE
-SLAYER
-DISORDER
-LIFE
-murder case
-tragedy
-incompetent fool
-madness
-ill will
-acute angle & right angle
-scars of love
-BaNG!!
-80$$
-Licht
-GtPfEp
-violet tone
-Secret Weakness
-Heaven's Door
-ZipangU
-GYOKURO
-Shut up ～Go to Hell
-meditation ～wander
-Peaceful Days
-Luster.
-mastermind
-BLAZE ～Crimson Lotus～
-cruel AND unusual
-stand FACE To face
-NINJA ～SAMURAI
-Critical Heat
-Black & Blue Room
-fiore
-musica
-The Moment of Dreams
-snow
-sTone
-LUNA
-Blue Dragon (Piano ver.)
-Voice of Light
-SoLa
-Melancholia
-AcE & ArMs
-mein Madchen
-Vater
-Auf Wiedersehen
-kalte Tranen
-lose Faden
-Grau
-mein Madchen <fur Cello>
-Danke schon
 Welcome to my Land
 Versus
 RAID ON A FORT
@@ -433,6 +117,13 @@ BL@CK
 MGR×A
 NO-口
 BLUE DRAGON <TMD3 VER.>
+BLUE DRAGON <'07 ver.>
+DRAGON RISES
+Tide Over
+spirit
+RED DRAGON <'07 ver.>
+Aesthetic
+Engel und Teufel
 ramdom-E
 ramdom-E <BPM64v>
 Missing Piece
@@ -471,6 +162,7 @@ MOBILE ARMOR
 REMIND YOU
 DAGUZA
 Ready to Go
+friends
 VOiD
 gエ19
 close your eyes
@@ -514,11 +206,14 @@ MATSURI
 KEKKAI
 COAL TAR
 BLUE
+AcE & ArMs
 AnALySiS
 AThLeTe
 AdVANcE
 ANxiEtY
+The Moment of Dreams
 WiLL
+Black & Blue Room
 Well
 itsuka
 itsuka-Gt
@@ -773,8 +468,20 @@ pfSOTEad3
 SOTE
 ToBeContinued..
 BLUE DRAGON <'07 Ver.>
+81DIVER
+LiVE/EViL
+from sunset to sunrise
+80$$
+PRISONER
+Climb to the Top
+Tang
+musica
+tragedy
+MAIN THEME
 BLAZE［ZERO-TWO Ver.］
+fiore
 U ＆ Cloud
+Big Break
 1st-Mov.：S
 Aesthetic <【emU】ver.>
 PF-【emU】1
