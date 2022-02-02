@@ -5,7 +5,8 @@
 
 ## Corpus
 
-- Python NLTK Brown: `common n-letter words.csv`
+- ENG: Python NLTK Brown: `common n-letter words.csv`
+- TH: pythainlp TTC - select frequently used words `freq > 50`
 
 ## References
 
