@@ -173,7 +173,7 @@ class THWordle:
         guess_split = split_word_by_base(guess)
         normalised_score = self.get_normalised_score(score)
 
-        # create base dictionary
+        # create base + upper + lower dictionary for using as hints
         base_dict = {}
         for group in ans_split:
             if group[0] in base_dict.keys():
@@ -181,12 +181,20 @@ class THWordle:
             else:
                 base_dict[group[0]] = ["".join(group)]
 
-        hints = []
+        guess_correct_count = {}
         for i, s in enumerate(normalised_score):
+            # count amount of hint for a particular correcly guess letter
             if s >= 1:
-                hint_key = guess_split[i][0]
-                rand_hint = np.random.choice(base_dict[hint_key])
-                hints.append(rand_hint)
+                letter = guess_split[i][0]
+                if letter in guess_correct_count.keys():
+                    guess_correct_count[letter] += 1
+                else:
+                    guess_correct_count[letter] = 1
+
+        hints = []
+        for i, key in enumerate(guess_correct_count.keys()):
+            rand_hint = np.random.choice(base_dict[key], replace=False, size=guess_correct_count[key])
+            hints += rand_hint.tolist()
         return hints
 
 
