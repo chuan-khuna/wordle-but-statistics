@@ -1,7 +1,9 @@
-from jupyterlab_server import WORKSPACE_EXTENSION
+import os
 import numpy as np
 
 import pythainlp
+
+from .reverse_wordle import *
 
 base_letters = pythainlp.thai_consonants + pythainlp.thai_lead_vowels + pythainlp.thai_follow_vowels + "ฤฦ"
 lower_letters = pythainlp.thai_below_vowels
@@ -58,6 +60,32 @@ def pretty_print(word, print_split_word=True):
         print(f"base length: {len(split_word)}")
 
 
+def get_th_score_matrix(vocab_df, score_file):
+
+    vocab = list(vocab_df['word'])
+
+    if not os.path.exists(score_file):
+        score_matrix = []
+        for ans in vocab_df['word']:
+
+            # using function from wordle core
+            wd = THWordle(vocab_df)
+
+            # score for this ans
+            score_arr = []
+            for guess in vocab_df['word']:
+                encoded_score = encode_score([j for i in wd.get_score(ans, guess) for j in i])
+                score_arr.append(encoded_score)
+            score_matrix.append(score_arr)
+
+        df = pd.DataFrame(columns=vocab, data=score_matrix)
+        df.to_csv(score_file, index=False)
+
+    df = pd.read_csv(score_file)
+
+    return df
+
+
 class THWordle:
 
     def __init__(self, df, allow_random=False):
@@ -83,10 +111,12 @@ class THWordle:
             # do nothing // print
             score = np.array([0] * ans_length, dtype=np.int)
             score_normalised = np.array([0] * ans_length, dtype=np.int)
-            hint = self.get_hint(self.ans, guess, score)
+            hint = []
             pass
 
         ans = "-" * ans_length
+        if self.current_guess > self.max_guess:
+            ans = self.ans
 
         guess_result = {
             "status": status,
@@ -94,8 +124,8 @@ class THWordle:
             "max #guess": self.max_guess,
             "guessed word": guess,
             "score": score,
-            "score_normalised": score_normalised,
-            "extra hint": hint,
+            "base score": score_normalised,
+            "hint": hint,
             "ans": ans
         }
 
@@ -133,7 +163,7 @@ class THWordle:
                     if ans_letters[letter] - 1 >= 0:
                         ans_letters[letter] -= 1
                         score[i][j] = 1
-        return score
+        return np.array(score, dtype=np.int)
 
     def get_normalised_score(self, score):
         return np.array(score)[:, 0]

@@ -41,7 +41,7 @@ def get_score_matrix(wordle_file, score_file):
             # score for this ans
             score_arr = []
             for guess in df['word']:
-                encoded_score = encode_score(wd.get_score(ans, guess), encoding_table)
+                encoded_score = encode_score(wd.get_score(ans, guess))
                 score_arr.append(encoded_score)
             score_matrix.append(score_arr)
 
