@@ -56,3 +56,123 @@ def pretty_print(word, print_split_word=True):
             text += (''.join(s) + " ")
         print(f"split word by base: {text}")
         print(f"base length: {len(split_word)}")
+
+
+class THWordle:
+
+    def __init__(self, df, allow_random=False):
+        self.df = df
+        self.ans = self.df.sample(1)['word'].values[0]
+
+        self.current_guess = 0
+        self.max_guess = round(1.25 * len(split_word_by_base(self.ans)))
+        self.allow_random = allow_random
+
+    def guess(self, guess):
+        status = self.check_word_length(guess) & self.check_word_in_dictionary(guess)
+
+        ans_length = len(split_word_by_base(self.ans))
+
+        if status:
+            # calculate score
+            self.current_guess += 1
+            score = self.get_score(self.ans, guess)
+            score_normalised = self.get_normalised_score(score)
+            hint = self.get_hint(self.ans, guess, score)
+        else:
+            # do nothing // print
+            score = np.array([0] * ans_length, dtype=np.int)
+            score_normalised = np.array([0] * ans_length, dtype=np.int)
+            hint = self.get_hint(self.ans, guess, score)
+            pass
+
+        ans = "-" * ans_length
+
+        guess_result = {
+            "status": status,
+            "#guess": self.current_guess,
+            "max #guess": self.max_guess,
+            "guessed word": guess,
+            "score": score,
+            "score_normalised": score_normalised,
+            "extra hint": hint,
+            "ans": ans
+        }
+
+        return guess_result
+
+    def get_score(self, ans, guess):
+        ans_split = split_word_by_base(ans)
+        guess_split = split_word_by_base(guess)
+
+        # amount of letters in ans
+        ans_letters = {}
+        for group in ans_split:
+            for letter in group:
+                if letter in ans_letters.keys() and letter != '':
+                    ans_letters[letter] += 1
+                elif letter not in ans_letters.keys() and letter != '':
+                    ans_letters[letter] = 1
+
+        score = []
+        for i, group in enumerate(guess_split):
+            group_score = []
+            for j, letter in enumerate(group):
+                if letter == ans_split[i][j] and letter != '':
+                    group_score.append(2)
+                    ans_letters[letter] -= 1
+                elif  letter == ans_split[i][j] and letter == '':
+                    group_score.append(2)
+                else:
+                    group_score.append(0)
+            score.append(group_score)
+ 
+        for i, group in enumerate(guess_split):
+            for j, letter in enumerate(group):
+                if score[i][j] == 0 and letter in ans_letters.keys():
+                    if ans_letters[letter] - 1 >= 0:
+                        ans_letters[letter] -= 1
+                        score[i][j] = 1
+        return score
+
+    def get_normalised_score(self, score):
+        return np.array(score)[:, 0]
+
+    def get_hint(self, ans, guess, score):
+        ans_split = split_word_by_base(ans)
+        guess_split = split_word_by_base(guess)
+        normalised_score = self.get_normalised_score(score)
+
+        # create base dictionary
+        base_dict = {}
+        for group in ans_split:
+            if group[0] in base_dict.keys():
+                base_dict[group[0]].append("".join(group))
+            else:
+                base_dict[group[0]] = ["".join(group)]
+
+        hints = []
+        for i, s in enumerate(normalised_score):
+            if s >= 1:
+                hint_key = guess_split[i][0]
+                rand_hint = np.random.choice(base_dict[hint_key])
+                hints.append(rand_hint)
+        return hints
+
+
+    def check_word_length(self, guess):
+        guess_length = len(split_word_by_base(guess))
+        ans_length = len(split_word_by_base(self.ans))
+
+        if guess_length == ans_length:
+            return True
+        else:
+            print(f"Guessed word '{guess}' length is not equal to {ans_length}.")
+            return False
+
+    def check_word_in_dictionary(self, guess):
+        if guess in list(self.df['word']) or self.allow_random:
+            return True
+        else:
+            print("Guessed word in not in dictionary.")
+            return False
