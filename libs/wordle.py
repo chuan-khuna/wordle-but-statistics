@@ -10,7 +10,7 @@ ICONS = {CORRECT: "🟩", WRONG_PLACE: "🟧", NOT_CONTAIN: "🟥", DONT_CARE: "
 
 class Wordle:
 
-    def __init__(self, file: str, allow_random: bool = False) -> None:
+    def __init__(self, file: str, allow_random: bool = False, icon_score: bool = True) -> None:
 
         # game mechanic
         self.df = pd.read_csv(file).dropna().reset_index(drop=True)
@@ -18,6 +18,7 @@ class Wordle:
         self.max_guess = round(1.5 * len(self.ans))
         self.help = self.__help()
         self.allow_random = allow_random
+        self.icon_score = icon_score
 
         # game state
         self.num_guess = 0
@@ -114,5 +115,7 @@ class Wordle:
         if pass_condition:
             score = self.compute_score(word, self.ans)
             self.num_guess += 1
+
+        score = self.iconise(score) if score and self.icon_score else score
 
         return self.num_guess, score
