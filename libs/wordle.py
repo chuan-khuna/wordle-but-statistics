@@ -110,7 +110,6 @@ class Wordle:
 
         score = None
 
-        # playable state
         pass_condition = is_correct_length & is_allowed
         if pass_condition:
             score = self.compute_score(word, self.ans)
