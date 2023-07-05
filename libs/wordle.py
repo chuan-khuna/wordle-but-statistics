@@ -1,4 +1,5 @@
 import pandas as pd
+from typing import List, Dict, Tuple
 
 CORRECT = 'o'
 WRONG_PLACE = '-'
@@ -35,7 +36,7 @@ class Wordle:
     def _sample_word(self) -> str:
         return list(self.df['word'].sample(1))[0]
 
-    def __generate_letters_count(self, word: str) -> dict:
+    def __generate_letters_count(self, word: str) -> Dict[str, int]:
         quota = {}
         for char in word:
             if char not in quota:
@@ -84,13 +85,13 @@ class Wordle:
 
         return ''.join(score)
 
-    def __validate_word_length(self, word):
+    def __validate_word_length(self, word: str) -> bool:
         if len(word) != len(self.ans):
             print(
                 f"The length of {word} ({len(word)}) != the length of the answer ({len(self.ans)})")
         return len(word) == len(self.ans)
 
-    def __validate_allowed(self, word):
+    def __validate_allowed(self, word: str) -> bool:
         if (word not in list(self.df['word'])) and (not self.allow_random):
             print("Random guessing is not allowed")
 
@@ -98,12 +99,12 @@ class Wordle:
         # allow random = False -> the guess matters
         return (word in list(self.df['word'])) or (self.allow_random)
 
-    def __validate_exceed(self):
+    def __validate_exceed(self) -> bool:
         if self.num_guess >= self.max_guess:
             print(f"Max retries ({self.max_guess}) exceeded")
         return self.num_guess < self.max_guess
 
-    def guess(self, word: str) -> str:
+    def guess(self, word: str) -> Tuple[int, str | None]:
         is_correct_length = self.__validate_word_length(word)
         is_allowed = self.__validate_allowed(word)
         is_exceed = self.__validate_exceed()
