@@ -1,0 +1,6 @@
+CORRECT = 'o'
+WRONG_PLACE = '-'
+NOT_CONTAIN = 'x'
+DONT_CARE = '?'
+
+ICONS = {CORRECT: "🟩", WRONG_PLACE: "🟧", NOT_CONTAIN: "⬜️", DONT_CARE: "🟦"}

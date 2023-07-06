@@ -1,12 +1,7 @@
 import pandas as pd
 from typing import List, Dict, Tuple
 
-CORRECT = 'o'
-WRONG_PLACE = '-'
-NOT_CONTAIN = 'x'
-DONT_CARE = '?'
-
-ICONS = {CORRECT: "🟩", WRONG_PLACE: "🟧", NOT_CONTAIN: "⬜️", DONT_CARE: "🟦"}
+from .wordle_settings import *
 
 
 class Wordle:
@@ -22,6 +17,14 @@ class Wordle:
         self.icon_score = icon_score
 
         # game state
+        self.num_guess = 0
+
+    def reset(self):
+        """Reset states of the wordle game
+        - random new `ans` - target word
+        - set `num_guess` to zero
+        """
+        self.ans = self._sample_word()
         self.num_guess = 0
 
     def __help(self) -> str:
